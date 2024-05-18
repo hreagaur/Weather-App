@@ -14,7 +14,9 @@ let weather = {
             }
             return response.json();
         })
-        .then((data) => this.displayWeather(data));
+        .then((data) => {
+            this.displayWeather(data);
+        });
     },
     displayWeather: function(data) {
         const { name } = data;
@@ -27,12 +29,13 @@ let weather = {
         document.querySelector(".temp").innerText = temp + "°C";
         document.querySelector(".humidity").innerText = "Humidity: " + humidity + "%";
         document.querySelector(".wind").innerText = "Wind speed: " + speed + " km/h";
-        document.querySelector(".weather").classList.remove("idk whats");
+        document.querySelector(".weather").classList.remove("loading");
         document.querySelector(".weather").style.display = "block";
         document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
     },
     search: function() {
-        this.fetchWeather(document.querySelector(".search-bar").value);
+        const city = document.querySelector(".search-bar").value;
+        this.fetchWeather(city);
     },
 };
 
