@@ -5,11 +5,11 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #7a7777; 
+    background-color: #f8f9fa; 
 }
 
 .card {
-    background-color: #5c5a5a9e;
+    background-color: #3d3d3da1;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,15 +18,15 @@ body {
     text-align: center;
 }
 
-/* .search{
+.search {
     margin-bottom: 20px;
-} */
+}
 
 .search-bar {
     padding: 8px 10px;
-    background-color: #cccbcb;
-    border: 1px solid #111111; 
-    border-radius: 100px;
+    border: 1px solid #0a0a0a; 
+    background-color: #c8cacac8;
+    border-radius: 35px;
     margin-right: 10px;
     width: 70%;
 }
@@ -34,18 +34,19 @@ body {
 button {
     padding: 8px 16px;
     border: none;
-    border-radius: 5px;
-    background-color: #3d3e3e; 
-    color: #858484; 
+    border-radius: 25px;
+    background-color: #5d5e5e; 
+    color: #fff; 
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #545455; 
+    background-color: #3f3f3f; 
 }
 
 .weather {
     display: none;
+    color: white;
 }
 
 .loading {
