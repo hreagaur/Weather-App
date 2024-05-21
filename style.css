@@ -5,11 +5,14 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 
 .card {
-    background-color: #3d3d3da1;
+    background-color: rgba(61, 61, 61, 0.65); 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -17,6 +20,7 @@ body {
     width: 100%;
     text-align: center;
 }
+
 
 .search {
     margin-bottom: 20px;
@@ -49,6 +53,29 @@ button:hover {
     display: none;
     color: white;
 }
+
+.forecast {
+    margin-top: 20px;
+}
+
+.forecast-day {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.forecast-day img {
+    width: 40px;
+    height: 40px;
+}
+
+.forecast-day .temp {
+    font-size: 16px;
+}
+
 
 .loading {
     display: block;
