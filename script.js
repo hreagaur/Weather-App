@@ -6,9 +6,14 @@ const weather = {
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apiKey}`
             );
-            if (!response.ok) 
-                {
-                throw new Error(`Weather data not found for "${city}"........`);
+
+            
+            // if () 
+            //     ........`);
+
+
+            if (!response.ok) {
+                throw new Error(`Weather data not found for "${city}".`);
             }
             const data = await response.json();
             this.displayWeather(data);
@@ -75,18 +80,26 @@ const weather = {
             const day = date.toLocaleDateString('en-US', { weekday: 'long', day: 'numeric', month: 'short' });
 
             if (!dailyForecasts[day]) {
-                dailyForecasts[day] = true;
-                const { icon } = entry.weather[0];
-                const { temp } = entry.main;
-                const forecastDay = document.createElement('div');
-                forecastDay.classList.add('forecast-day');
-                forecastDay.innerHTML = `
-                    <div class="day">${day}</div>
-                    <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather icon">
-                    <div class="temp">${temp}°C</div>
-                `;
-                forecastDiv.appendChild(forecastDay);
+                dailyForecasts[day] = {
+                    temps: [],
+                    icon: entry.weather[0].icon,
+                };
             }
+            dailyForecasts[day].temps.push(entry.main.temp);
+        });
+
+        Object.keys(dailyForecasts).forEach(day => {
+            const temps = dailyForecasts[day].temps;
+            const avgTemp = temps.reduce((a, b) => a + b) / temps.length;
+            const icon = dailyForecasts[day].icon;
+            const forecastDay = document.createElement('div');
+            forecastDay.classList.add('forecast-day');
+            forecastDay.innerHTML = `
+                <div class="day">${day}</div>
+                <img src="https://openweathermap.org/img/wn/${icon}.png" alt="Weather icon">
+                <div class="temp">${avgTemp.toFixed(1)}°C</div>
+            `;
+            forecastDiv.appendChild(forecastDay);
         });
     },
     search: function () {
