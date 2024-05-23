@@ -1,6 +1,6 @@
 const weather = {
     apiKey: "3054013b51d2822bf828eb9b2f7b0e03",
-    unsplashApiKey: "z1Dv--f3GqEBGXrM9i5C5kyhAZJpI8aASAR1q90S7As", 
+    unsplashApiKey: "z1Dv--f3GqEBGXrM9i5C5kyhAZJpI8aASAR1q90S7As",
     fetchWeather: async function (city) {
         try {
             const response = await fetch(
