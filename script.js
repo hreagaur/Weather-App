@@ -6,8 +6,9 @@ const weather = {
             const response = await fetch(
                 `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apiKey}`
             );
-            if (!response.ok) {
-                throw new Error(`Weather data not found for "${city}".`);
+            if (!response.ok) 
+                {
+                throw new Error(`Weather data not found for "${city}"........`);
             }
             const data = await response.json();
             this.displayWeather(data);
